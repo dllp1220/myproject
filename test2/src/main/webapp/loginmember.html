@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員註冊頁面</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+    <style>
+        /* body{
+            background-color: cadetblue;
+        } */
+        #contatiner{
+            padding-top: 60px;
+            padding-left: 50px;
+            width: 600px;
+            margin: auto;
+            font-family: "Helvetica Neue", "Helvetica", "Arial";
+        }
+
+        .input-style{
+            border-radius: 5px;
+            border:1px solid black;
+            font-size: 1.1em;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+
+        label{
+            width: 200em;
+            float: left;
+            font-size: 1.2em;
+            padding-top: 8px;
+        }
+
+        .input-width{
+            width: 300px;
+            height: 40px;
+        }
+        #mail-gender{
+            width: 500px;
+            padding-top: 15px;
+        }
+
+        #submitButton{
+            background-color: brown;
+            color: aliceblue;
+            width: 523px;
+            height: 40px;
+        }
+        #error{
+            color: red;
+        }
+    </style>
+
+
+</head>
+<body>
+    
+    <div id="contatiner">
+        
+        <form id="abc">
+
+            <label for="email-name">會員帳號:</label>
+            <input id="email-name" class="input-style input-width" type="text" name="name" placeholder="輸入姓名">
+            
+            <label for="email-address">信箱:</label>
+            <input id="email-address" class="input-style input-width" type="text" name="email" placeholder="輸入信箱">
+            
+            <label for="mail-gender">性別</label>
+            <select name="gender" id="mail-gender" class="input-style">
+                <option value="male">男</option>
+                <option value="female">女</option>
+            </select>
+            
+            <label for="pass">密碼</label>
+            <input type="password" name="pass" id="pass" class="input-style input-width" placeholder="密碼">
+
+            <label for="pass2">確認密碼</label>
+            <input type="password" name="pass2" id="pass2" class="input-style input-width" placeholder="確認密碼">
+            
+            <button type="submit" class="input-style" name="submit" id="submitButton">發送</button>
+        </form>
+        
+        <div id="error"></div>
+    </div>
+
+
+
+    <script>
+
+        $("#abc").submit(function(event){
+            var errorMessage = "";
+            event.preventDefault();
+            var name=$("#email-name").val();
+            //var email=$("#email-address").val();
+            var pass=$("#pass").val();
+            //var pass2=$("#pass2").val();
+            //var message=$("#mail-message").val();
+
+            function isValidEmailAddress(emailAddress){
+
+                //var pattern = /^\b[A-Z0-9-]+@[A-Z09-]+\.com\b/i;
+
+                return pattern.test(emailAddress);
+
+            }
+
+            if(name =="" || email =="" || pass == "" || pass2 == ""){
+                errorMessage="輸入不正確";
+            }else if(!isValidEmailAddress(email)){
+                errorMessage="請輸入正確格式";
+            }else if(pass != pass2){
+                errorMessage=("你輸入密碼不一樣");
+            }
+
+            if (errorMessage == ""){
+                $("#error").html("輸入成功");
+                $("#error").css("color", "green");
+            }else{
+                $("#error").html(errorMessage);
+                $("#error").css("color","red");
+            }
+        });
+
+    </script>
+
+
+<script
+      color="0,0,0"
+      opacity="0.3"
+      z-index="-2"
+      count="99"
+      src="https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js"
+      integrity="sha512-P+NGabN/TJDOnCVOFJO+E06TBm4i+M8dTT91lWg/8UpwLrzicEXIypmABPpA47D0x6r+yxFHjYIZKWhc1h7xlQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+</body>
+</html>

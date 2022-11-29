@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員登入</title>
+</head>
+<body>
+    <style>
+        /* body{
+            background-color: cadetblue;
+        } */
+        #contatiner{
+            padding-top: 60px;
+            padding-left: 50px;
+            width: 600px;
+            margin: auto;
+            font-family: "Helvetica Neue", "Helvetica", "Arial";
+        }
+
+        .input-style{
+            border-radius: 5px;
+            border:1px solid black;
+            font-size: 1.1em;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+
+        label{
+            width: 200em;
+            float: left;
+            font-size: 1.2em;
+            padding-top: 8px;
+        }
+
+        .input-width{
+            width: 300px;
+            height: 40px;
+        }
+        #mail-gender{
+            width: 500px;
+            padding-top: 15px;
+        }
+
+        #submitButton{
+            background-color: brown;
+            color: aliceblue;
+            width: 523px;
+            height: 40px;
+        }
+        #error{
+            color: red;
+        }
+    </style>
+
+
+    <div id="contatiner">
+        
+        <form id="abc">
+
+            <label for="email-name">會員帳號:</label>
+            <input id="email-name" class="input-style input-width" type="text" name="name" placeholder="輸入姓名">
+            
+            
+            
+            <label for="pass">密碼:</label>
+            <input type="password" name="pass" id="pass" class="input-style input-width" placeholder="密碼">
+
+            <button type="submit" class="input-style" name="submit" id="submitButton">發送</button>
+        </form>
+	<div style="display:inline;">還沒有帳號?</div>
+        <a href="login.html"><div style="display:inline;">趕緊辦一個吧!</div></a>
+        
+        <div class="error"></div>
+    </div>
+    <script>
+
+        $("#abc").submit(function(event){
+            var errorMessage = "";
+            event.preventDefault();
+            var name=$("#email-name").val();
+            var email=$("#email-address").val();
+            var pass=$("#pass").val();
+            var pass2=$("#pass2").val();
+            var message=$("#mail-message").val();
+
+            
+            if(pass != pass2){
+                errorMessage=("你輸入密碼不一樣");
+            }
+
+        });
+
+    </script>
+
+
+<script
+      color="0,0,0"
+      opacity="0.3"
+      z-index="-2"
+      count="99"
+      src="https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js"
+      integrity="sha512-P+NGabN/TJDOnCVOFJO+E06TBm4i+M8dTT91lWg/8UpwLrzicEXIypmABPpA47D0x6r+yxFHjYIZKWhc1h7xlQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+</body>
+</html>

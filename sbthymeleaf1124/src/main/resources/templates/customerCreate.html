@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Create New Customer</title>
+</head>
+<body>
+<h2>
+<form action="customerCreate" method ="post">
+
+ name:<input type="text" name="name" th:field="${cs.name}"/><br/>
+ address:<input type="text" name = "address" th:field="${cs.address}"/><br/>
+ weight:<input type="text" name ="weight" th:field="${cs.weight}"/><br/>
+ <input type="submit" value="Submit"/>
+
+</form>
+</h2>
+</body>
+</html>

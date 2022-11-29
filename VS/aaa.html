@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>使用者登入</title>
+</head>
+<?php  
+$u=@$_POST["user"];
+$p=@$_POST["pass"];
+$hidden=@$_POST["hidden"];
+if (!empty($hidden)){
+if (empty($u)){
+echo "<script>alert('帳號不能為空!')</script>";
+header("refresh:0;url=index.php");
+exit;
+}else{
+ 
+$DB="0515DB";
+$TB="userTB";
+$db=mysql_connect("127.0.0.1","root","");  //連結資料庫
+$db1=mysql_select_db($DB);
+mysql_query("SET NAMES utf8");  //設定編碼
+$str="SELECT * FROM $TB WHERE `user`='$u'";  //找帳號是否存在
+$r=mysql_query($str);
+if (mysql_num_rows($r)>0){
+$str="SELECT * FROM $TB WHERE `user`='$u' AND `pass`='$p'";  //找帳密是否存在
+$r=mysql_query($str); 
+if (mysql_num_rows($r)>0){
+setcookie("passCheck","true");
+header("refresh:0;url=bbb.php");   //帳密正確跳頁
+exit;
+}
+}  
+echo "<script>alert('帳號或密碼錯誤');</script>";
+header("refresh:0;url=index.php");
+exit; 
+} 
+}
+ 
+?>
+<body>
+<div align="center">
+  <form name="form1" method="post" action="">
+    <table width="400" border="1" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="114">帳號</td>
+        <td width="280"><input type="text" name="user" id="user"></td>
+      </tr>
+      <tr>
+        <td>密碼</td>
+        <td><input type="text" name="pass" id="pass"></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input type="submit" name="button" id="button" value="送出">
+          <input type="reset" name="button2" id="button2" value="重設"></td>
+      </tr>
+    </table>
+    <input type="hidden" name="hidden" value="hidden">
+  </form>
+</div>
+</body>
+</html>
